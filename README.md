@@ -17,13 +17,13 @@
         - [x] Mustache 를 사용한 화면 구성
     - 수정
         - [x] Api & Test Code
-        - Mustache 를 사용한 화면 구성
+        - [x] Mustache 를 사용한 화면 구성
     - 조회
         - [x] Api & Test Code
-        - Mustache 를 사용한 화면 구성
+        - [x] Mustache 를 사용한 화면 구성
     - 삭제
         - [x] Api & Test Code
-        - Mustache 를 사용한 화면 구성
+        - [x] Mustache 를 사용한 화면 구성
     - [x] Jpa Auditing을 통한 날짜 관리
 
 - 소셜 로그인 
