@@ -14,7 +14,7 @@
 
     - 등록
         - [x] Api & Test Code
-        - Mustache 를 사용한 화면 구성
+        - [x] Mustache 를 사용한 화면 구성
     - 수정
         - [x] Api & Test Code
         - Mustache 를 사용한 화면 구성
