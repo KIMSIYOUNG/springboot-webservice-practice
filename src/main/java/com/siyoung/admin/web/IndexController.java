@@ -1,5 +1,6 @@
 package com.siyoung.admin.web;
 
+import com.siyoung.admin.config.auth.LoginUser;
 import com.siyoung.admin.config.auth.dto.SessionUser;
 import com.siyoung.admin.domain.user.User;
 import com.siyoung.admin.service.posts.PostsService;
@@ -10,22 +11,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.servlet.http.HttpSession;
-
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
-    private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
-        model.addAttribute("posts",postsService.findAllDesc());
-
-        //TODO something weird
-        User user = (User) httpSession.getAttribute("user");
-        if(user != null) {
+    public String index(Model model, @LoginUser SessionUser user) {
+        model.addAttribute("posts", postsService.findAllDesc());
+        if (user != null) {
             model.addAttribute("userName", user.getName());
         }
         return "index";
