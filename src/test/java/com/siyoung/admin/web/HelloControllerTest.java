@@ -17,9 +17,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(controllers = HelloController.class,
-excludeFilters = {
-        @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
-})
+        excludeFilters = {
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+        })
 public class HelloControllerTest {
 
     @Autowired
@@ -27,7 +27,7 @@ public class HelloControllerTest {
 
     @WithMockUser(roles = "USER")
     @Test
-    public void hello가_리턴된다() throws Exception{
+    public void hello가_리턴된다() throws Exception {
         String hello = "hello";
 
         mockMvc.perform(get("/hello"))
@@ -37,17 +37,17 @@ public class HelloControllerTest {
 
     @WithMockUser(roles = "USER")
     @Test
-    public void helloDto가_리턴된다() throws Exception{
+    public void helloDto가_리턴된다() throws Exception {
         String name = "hello";
         int amount = 100;
 
         mockMvc.perform(
                 get("/hello/dto")
-                                    .param("name",name)
-                                    .param("amount",String.valueOf(amount)))
-                    .andExpect(status().isOk())
-                    .andExpect(jsonPath("$.name",is(name)))
-                    .andExpect(jsonPath("$.amount",is(amount)));
+                        .param("name", name)
+                        .param("amount", String.valueOf(amount)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.name", is(name)))
+                .andExpect(jsonPath("$.amount", is(amount)));
     }
 
 }
